@@ -1,0 +1,73 @@
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* 其他樣式 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffe6e9; /* 淺粉色背景 */
+    margin: 0;
+    padding: 20px;
+}
+
+.calculator {
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.input-container {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 垂直居中 */
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input, select, button {
+    padding: 10px;
+    font-size: 16px;
+    width: 80%; /* 調整寬度以置中 */
+    border-radius: 15px; /* 圓邊框 */
+}
+
+button {
+    background-color: #ff69b4; /* 深粉色 */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    width: 80%; /* 調整寬度以置中 */
+    margin-top: 10px; /* 增加與其他元素的間距 */
+}
+
+button:hover {
+    background-color: #ff1493; /* 深粉色 hover 效果 */
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
