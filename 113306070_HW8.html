@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Calculator</title>
+    <link rel="stylesheet" href="113306070_HW8.css">
+</head>
+<body>
+    <div class="calculator">
+        <h1>JS Calculator</h1>
+        <div class="input-container">
+            <label for="number1">Number 1:</label>
+            <input type="number" id="number1" placeholder="Enter number 1" oninput="this.value = this.value.slice(0, 7)">
+        </div>
+        <div class="input-container">
+            <label for="number2">Number 2:</label>
+            <input type="number" id="number2" placeholder="Enter number 2" oninput="this.value = this.value.slice(0, 7)">
+        </div>
+        <div class="input-container">
+            <label for="operator">Operate way?</label>
+            <select id="operator" onchange="updateButtonText()">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+        </div>
+        <button id="calculateButton" onclick="calculate()">Add</button>
+        <p id="result">Result = </p>
+    </div>
+    <script >
+        function calculate() {
+    const number1 = parseFloat(document.getElementById('number1').value);
+    const operator = document.getElementById('operator').value;
+    const number2 = parseFloat(document.getElementById('number2').value);
+    let result;
+
+    if (isNaN(number1) || isNaN(number2)) {
+        alert('Please enter valid numbers.');
+        return;
+    }
+
+    switch (operator) {
+        case '+':
+            result = add(number1, number2);
+            break;
+        case '-':
+            result = subtract(number1, number2);
+            break;
+        case '*':
+            result = multiply(number1, number2);
+            break;
+        case '/':
+            if (number2 === 0) {
+                alert('Division by zero is not allowed.');
+                return;
+            }
+            result = divide(number1, number2);
+            break;
+        default:
+            alert('Invalid operator selected.');
+            return;
+    }
+
+    document.getElementById('result').innerText = 'Result = ' + result.toFixed(2);
+}
+
+function add(a, b) {
+    return a + b;
+}
+
+function subtract(a, b) {
+    return a - b;
+}
+
+function multiply(a, b) {
+    return a * b;
+}
+
+function divide(a, b) {
+    return a / b;
+}
+
+function updateButtonText() {
+    const operator = document.getElementById('operator').value;
+    const calculateButton = document.getElementById('calculateButton');
+    switch (operator) {
+        case '+':
+            calculateButton.innerText = 'Add';
+            break;
+        case '-':
+            calculateButton.innerText = 'Subtract';
+            break;
+        case '*':
+            calculateButton.innerText = 'Multiply';
+            break;
+        case '/':
+            calculateButton.innerText = 'Divide';
+            break;
+        default:
+            calculateButton.innerText = 'Add';
+            break;
+    }
+}
+
+    </script>
+</body>
+</html>
